@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{> head}}
+  </head>
+  <body data-page="contact">
+    {{> chrome}}
+    {{> nav}}
+
+    <main>
+      <!-- ============================ HEADER ============================ -->
+      <header class="pagehead">
+        <div class="pagehead__media">
+          {{> pic src="/media/night-set-lighting.jpg" alt="Night film set with cinematic lighting — contact Over Exposure Productions, Abu Dhabi." eager=true sizes="100vw"}}
+        </div>
+        <div class="pagehead__inner wrap">
+          <nav class="tc" aria-label="Breadcrumb" style="margin-bottom:1.5rem">
+            <a href="/">Home</a> <span class="accent">/</span> Contact
+          </nav>
+          <div class="eyebrow"><span class="tc"><span class="rec-dot"></span>&nbsp;LET'S TALK</span></div>
+          <h1 class="h-xl">Get in Touch</h1>
+          <p class="lead pagehead__sub">Tell us about your production — feature film, television series, commercial campaign, branded content or government initiative. We’ll get back to you from our base at Yas Creative Hub, Yas Island.</p>
+        </div>
+      </header>
+
+      <!-- =========================== CONTACT =========================== -->
+      <section class="section" aria-label="Contact details and enquiry form">
+        <div class="wrap contact-grid">
+          <!-- Details -->
+          <div class="reveal">
+            <div class="eyebrow"><span class="tc"><span class="n">01</span> &nbsp;— STUDIO</span></div>
+
+            <div class="cinfo__item">
+              <div class="cinfo__label">Email</div>
+              <div class="cinfo__value">
+                <a href="mailto:{{site.email}}">{{site.email}}</a>
+                <button type="button" class="copy-btn" data-copy="{{site.email}}" aria-label="Copy email address">Copy</button>
+              </div>
+            </div>
+
+            <div class="cinfo__item">
+              <div class="cinfo__label">Phone — {{site.contactPerson}}</div>
+              <div class="cinfo__value">
+                <a href="tel:{{site.phone}}">{{site.phoneDisplay}}</a>
+                <button type="button" class="copy-btn" data-copy="{{site.phone}}" aria-label="Copy phone number">Copy</button>
+              </div>
+            </div>
+
+            <div class="cinfo__item">
+              <div class="cinfo__label">Studio</div>
+              <div class="cinfo__value" style="display:block">
+                {{site.address.line1}}<br />{{site.address.line2}}
+              </div>
+            </div>
+
+            <div class="cinfo__item">
+              <div class="cinfo__label">Hours</div>
+              <div class="cinfo__value" style="display:block">{{site.hours}}</div>
+            </div>
+
+            <div class="cinfo__item">
+              <div class="cinfo__label">Social</div>
+              <div class="cinfo__value">
+                <a class="iglink" href="{{site.instagram}}" target="_blank" rel="noopener" aria-label="Over Exposure Productions on Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                  {{site.instagramHandle}}
+                </a>
+              </div>
+            </div>
+
+            <div class="map-embed" aria-label="Map of Yas Island, Abu Dhabi">
+              <iframe
+                title="Map — Yas Creative Hub, Yas Island, Abu Dhabi"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=54.5856%2C24.4759%2C54.6256%2C24.5159&layer=mapnik&marker=24.4959%2C54.6056"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="reveal">
+            <div class="eyebrow"><span class="tc"><span class="n">02</span> &nbsp;— START A PROJECT</span></div>
+            <form class="form" data-contact-form novalidate>
+              <div class="form__row">
+                <div class="field">
+                  <label for="f-name">Name</label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+                  <span class="field__err">Please enter your name.</span>
+                </div>
+                <div class="field">
+                  <label for="f-email">Email <span class="req">*</span></label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+                  <span class="field__err">Please enter a valid email.</span>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="field">
+                  <label for="f-phone">Phone</label>
+                  <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+971 …" />
+                  <span class="field__err">Please check your number.</span>
+                </div>
+                <div class="field select">
+                  <label for="f-type">Project Type</label>
+                  <select id="f-type" name="projectType">
+                    <option value="">Select…</option>
+                    {{#each services}}<option value="{{this.name}}">{{this.name}}</option>{{/each}}
+                    <option value="Other">Something else</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="f-message">Message <span class="req">*</span></label>
+                <textarea id="f-message" name="message" placeholder="Tell us about the project, timeline and budget…" required></textarea>
+                <span class="field__err">Please add a little detail (10+ characters).</span>
+              </div>
+
+              <!-- Honeypot: hidden from humans; bots that fill it are dropped. -->
+              <div class="hp" aria-hidden="true">
+                <label for="f-company">Company (leave blank)</label>
+                <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form__submit">
+                <button type="submit" class="btn-solid">Send Enquiry</button>
+                <p class="form__note">Or email <a href="mailto:{{site.email}}" style="color:var(--text)">{{site.email}}</a> directly.</p>
+              </div>
+              <p class="form__status" data-form-status role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer}}
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

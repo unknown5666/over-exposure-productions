@@ -1,0 +1,25 @@
+{
+  "name": "over-exposure-productions",
+  "version": "1.0.0",
+  "author": "Saad Khan",
+  "private": true,
+  "description": "Over Exposure Productions — production & film servicing company, Yas Creative Hub, Yas Island, Abu Dhabi.",
+  "type": "module",
+  "scripts": {
+    "harvest": "node scripts/harvest-media.mjs",
+    "assets": "node scripts/generate-assets.mjs",
+    "prebuild": "node scripts/generate-assets.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.14"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5",
+    "vite": "^5.4.10",
+    "vite-plugin-handlebars": "^2.0.0"
+  }
+}

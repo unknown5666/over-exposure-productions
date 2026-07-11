@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{> head}}
+  </head>
+  <body data-page="404">
+    {{> chrome}}
+    {{> nav}}
+
+    <main>
+      <section class="slate">
+        <div class="wrap">
+          <div class="slate__stripes" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="eyebrow" style="justify-content:center"><span class="tc"><span class="rec-dot"></span>&nbsp;ROLL 404 · TAKE 01</span></div>
+          <h1 class="slate__code">404</h1>
+          <p class="slate__msg">Scene Missing</p>
+          <p class="lead">This shot didn’t make the final cut — the page you’re looking for isn’t here. Let’s get you back to the story.</p>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+            <a class="btn-solid" href="/">Back to Home</a>
+            <a class="btn-ghost" href="/portfolio/">View Our Work</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer}}
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

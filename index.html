@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{> head}}
+  </head>
+  <body data-page="home">
+    {{> chrome}}
+    {{> nav}}
+
+    <main>
+      <!-- ============================= HERO ============================= -->
+      <section class="hero" id="hero">
+        <div class="hero__media">
+          {{> pic src=hero.bg alt="Cinematic ceiling and hallway of a modern Abu Dhabi landmark — Over Exposure Productions." eager=true sizes="100vw"}}
+          <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" poster="{{webp hero.bg 1200}}" aria-hidden="true">
+            <source data-src="/media/hero-reel-720.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero__overlay"></div>
+
+        <div class="hero__inner wrap">
+          <div class="hero__top">
+            <span class="tc"><span class="rec-dot"></span>&nbsp;REC — PRODUCTION &amp; FILM SERVICING · ABU DHABI</span>
+          </div>
+
+          <div class="hero__main">
+            <h1 class="h-xxl hero__title" aria-label="{{hero.tagline}}">
+              <span class="mask"><span data-hero-line>Bringing the World</span></span>
+              <span class="mask"><span data-hero-line>to <span class="g">Abu Dhabi</span></span></span>
+            </h1>
+
+            <div class="hero__foot">
+              <div class="hero__subline reveal" role="list" aria-label="Sectors">
+                {{#each hero.subline}}<span role="listitem">{{this}}</span>{{/each}}
+              </div>
+            </div>
+
+            <div class="hero__foot">
+              <div class="reveal" style="display:flex; gap:1rem; flex-wrap:wrap">
+                <a class="btn" href="/portfolio/"><span class="btn__line">View Filmography</span><span class="arrow">↗</span></a>
+                <a class="btn-ghost" href="#contact" data-scroll>Start a Production</a>
+              </div>
+            </div>
+
+            <div class="hero__foot">
+              <span class="hero__scroll"><span class="bar"></span>Scroll</span>
+              <span class="tc">01 — COMPANY PROFILE</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ MARQUEE =========================== -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          {{#each marquee}}<span class="marquee__item">{{this}}</span>{{/each}}
+          {{#each marquee}}<span class="marquee__item">{{this}}</span>{{/each}}
+        </div>
+      </div>
+
+      <!-- ======================= INTRO / STATS BAR ====================== -->
+      <section class="section band" id="intro" aria-labelledby="intro-title">
+        <div class="band__bg">{{> pic src=intro.bg alt="Over Exposure Productions film crew on a desert location shoot in the UAE." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="eyebrow gold"><span class="tc"><span class="g">02</span> &nbsp;— OVER EXPOSURE.</span></div>
+          <h2 class="h-lg reveal" id="intro-title">A production partner<br />built for the world.</h2>
+          <p class="lead lead--wide mt-2 reveal">{{intro.copy}}</p>
+
+          <div class="statband__grid reveal">
+            {{#each intro.stats}}
+            <div class="stat">
+              <div class="stat__n">{{this.n}}</div>
+              <div class="stat__label">{{this.label}}</div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= EXECUTIVE SUMMARY ====================== -->
+      <section class="section band" id="summary" aria-labelledby="summary-title">
+        <div class="band__bg">{{> pic src=execSummary.bg alt="Professional film studio interior — Over Exposure Productions, Abu Dhabi." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">03</span> &nbsp;— EXECUTIVE SUMMARY</span></div>
+            <h2 class="h-lg reveal" id="summary-title">One trusted partner,<br />end to end</h2>
+            <p class="lead lead--wide mt-2 reveal">{{execSummary.copy}}</p>
+          </div>
+
+          <div class="exec__cols reveal">
+            {{#each execSummary.columns}}
+            <div class="exec__col">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.title}}</h3>
+              <p>{{this.body}}</p>
+            </div>
+            {{/each}}
+          </div>
+          <p class="exec__foot reveal"><b>Positioned for:</b> supplier registration • tenders • RFPs • production partnerships • brand campaigns • international filming</p>
+        </div>
+      </section>
+
+      <!-- ======================= OUR WORK CATEGORIES ==================== -->
+      <section class="section band" id="categories" aria-labelledby="categories-title">
+        <div class="band__bg">{{> pic src=workCategories.bg alt="Abu Dhabi skyline at sunset — Over Exposure Productions work categories." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">04</span> &nbsp;— OUR WORK CATEGORIES</span></div>
+            <h2 class="h-lg reveal" id="categories-title">Three core<br />production categories</h2>
+            <p class="lead lead--wide mt-2 reveal">{{workCategories.copy}}</p>
+          </div>
+
+          <div class="wcats reveal">
+            {{#each workCategories.items}}
+            <article class="wcat">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.title}}</h3>
+              <p>{{this.body}}</p>
+            </article>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================== WHY ABU DHABI ======================= -->
+      <section class="section" id="why-abu-dhabi" aria-labelledby="whyad-title">
+        <div class="wrap">
+          <div class="whyad__grid">
+            <div class="whyad__media reveal">
+              <div class="big">{{> pic src=whyAbuDhabi.bgPrimary alt="Etihad Towers and the Abu Dhabi waterfront skyline." sizes="(max-width: 900px) 92vw, 46vw"}}</div>
+              <div class="small">{{> pic src=whyAbuDhabi.bgSecondary alt="Close-up of Abu Dhabi's modern towers." sizes="(max-width: 900px) 48vw, 24vw"}}</div>
+            </div>
+            <div class="reveal">
+              <div class="eyebrow gold"><span class="tc"><span class="g">05</span> &nbsp;— WHY ABU DHABI</span></div>
+              <h2 class="h-lg">World-class locations,<br /><span class="g">{{whyAbuDhabi.subheading}}</span></h2>
+              <ul class="whyad__bullets">
+                {{#each whyAbuDhabi.bullets}}<li>{{this}}</li>{{/each}}
+              </ul>
+              <div class="callouts">
+                {{#each whyAbuDhabi.stats}}
+                <div class="callout"><b>{{this.value}}</b><span>{{this.label}}</span></div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================== CORE SERVICES ====================== -->
+      <section class="section" id="core-services" aria-labelledby="core-title">
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">06</span> &nbsp;— CORE SERVICES</span></div>
+            <h2 class="h-lg reveal" id="core-title">Full-service<br />capabilities</h2>
+            <p class="lead lead--wide mt-2 reveal">{{coreServices.copy}}</p>
+          </div>
+
+          <div class="coreserv__grid reveal">
+            {{#each coreServices.items}}
+            <article class="cs-card">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.name}}</h3>
+              <p>{{this.body}}</p>
+            </article>
+            {{/each}}
+          </div>
+
+          <div class="coreserv__media reveal">
+            <div>{{> pic src=coreServices.bgs.[0] alt="Film crew silhouetted on a desert dune at golden hour." sizes="(max-width: 900px) 46vw, 46vw"}}</div>
+            <div>{{> pic src=coreServices.bgs.[1] alt="Post-production edit suite with colour-grading monitors." sizes="(max-width: 900px) 46vw, 46vw"}}</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== SUPPLIER CAPABILITIES =================== -->
+      <section class="section band" id="capabilities" aria-labelledby="cap-title">
+        <div class="band__bg">{{> pic src=supplierCaps.bg alt="Production base camp tent on a desert shoot at dusk in the UAE." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">07</span> &nbsp;— SUPPLIER CAPABILITIES</span></div>
+            <h2 class="h-lg reveal" id="cap-title">Across the full<br />production lifecycle</h2>
+          </div>
+          <div class="phases reveal">
+            {{#each supplierCaps.phases}}
+            <div class="phase">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.title}}</h3>
+              <p>{{this.body}}</p>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FILM SERVICES & REBATE ==================== -->
+      <section class="section band" id="film-services" aria-labelledby="film-title">
+        <div class="band__bg">{{> pic src=filmServices.bg alt="Night desert film shoot lit against the dunes — Abu Dhabi film servicing." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">08</span> &nbsp;— FILM SERVICES &amp; REBATE SUPPORT</span></div>
+            <h2 class="h-lg reveal" id="film-title">Maximise the benefits<br />of filming in the UAE</h2>
+            <p class="lead lead--wide mt-2 reveal">{{filmServices.copy}}</p>
+          </div>
+
+          <div class="filmserv__grid reveal">
+            <div>
+              <div class="filmserv__adv">
+                <h3>The Abu Dhabi Advantage</h3>
+                <p>{{filmServices.advantage}}</p>
+              </div>
+              <p class="filmserv__tag">{{filmServices.tag}}</p>
+            </div>
+            <ul class="checklist">
+              {{#each filmServices.bullets}}<li>{{this}}</li>{{/each}}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SELECTED PRODUCTION CREDITS =============== -->
+      <section class="section band" id="credits" aria-labelledby="credits-title">
+        <div class="band__bg">{{> pic src=productionCredits.bg alt="Desert film location at sunset — Over Exposure Productions credits." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">09</span> &nbsp;— SELECTED PRODUCTION CREDITS</span></div>
+            <h2 class="h-lg reveal" id="credits-title">A proven<br />track record</h2>
+            <p class="lead lead--wide mt-2 reveal">{{productionCredits.copy}}</p>
+          </div>
+
+          <div class="credits__cols reveal">
+            <div class="credit-group">
+              <h3>Hollywood &amp; Bollywood</h3>
+              <ul class="credit-list">
+                {{#each productionCredits.hollywood}}<li>{{this}}</li>{{/each}}
+              </ul>
+            </div>
+            <div class="credit-group">
+              <h3>GCC &amp; Commercial Campaigns</h3>
+              <ul class="credit-list">
+                {{#each productionCredits.gcc}}<li>{{this}}</li>{{/each}}
+              </ul>
+            </div>
+          </div>
+          <div class="reveal mt-2"><a class="btn" href="/portfolio/"><span class="btn__line">See Full Filmography</span><span class="arrow">↗</span></a></div>
+        </div>
+      </section>
+
+      <!-- =========================== LEADERSHIP ========================= -->
+      <section class="section" id="team" aria-labelledby="team-title">
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">10</span> &nbsp;— LEADERSHIP TEAM</span></div>
+            <h2 class="h-lg reveal" id="team-title">The people<br />behind the work</h2>
+            <p class="lead lead--wide mt-2 reveal">{{team.copy}}</p>
+          </div>
+
+          <div class="team__ceo reveal">
+            <div class="team__ceo-photo">
+              {{> pic src=team.ceo.photo alt="Abdulaziz Al Ali, CEO of Over Exposure Productions." sizes="(max-width: 820px) 70vw, 360px"}}
+            </div>
+            <div>
+              <span class="role">{{team.ceo.role}}</span>
+              <h3>{{team.ceo.name}}</h3>
+              <p>{{team.ceo.bio}}</p>
+            </div>
+          </div>
+
+          <div class="team__row reveal">
+            {{#each team.members}}
+            <article class="exec-card">
+              <div class="exec-card__photo">{{> pic src=this.photo alt=this.name sizes="172px"}}</div>
+              <span class="role">{{this.role}}</span>
+              <h4>{{this.name}}</h4>
+              <p>{{this.bio}}</p>
+            </article>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== WHY OVER EXPOSURE ========================= -->
+      <section class="section band" id="why-ox" aria-labelledby="whyox-title">
+        <div class="band__bg">{{> pic src=whyOx.bg alt="Film crew working a desert set at golden hour — Over Exposure Productions." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">11</span> &nbsp;— WHY OVER EXPOSURE PRODUCTIONS</span></div>
+            <h2 class="h-lg reveal" id="whyox-title">Clear differentiators</h2>
+            <p class="lead lead--wide mt-2 reveal">{{whyOx.copy}}</p>
+          </div>
+          <div class="whyox reveal">
+            {{#each whyOx.items}}
+            <div class="whyox__cell">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.title}}</h3>
+              <p>{{this.body}}</p>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================== FUTURE VISION ======================= -->
+      <section class="section band" id="future" aria-labelledby="future-title">
+        <div class="band__bg">{{> pic src=futureVision.bg alt="Silhouetted figure in a film studio — the future vision of Over Exposure Productions." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">12</span> &nbsp;— FUTURE VISION</span></div>
+            <h2 class="h-lg reveal" id="future-title">Global reach,<br />local impact</h2>
+            <p class="lead lead--wide mt-2 reveal">{{futureVision.copy}}</p>
+          </div>
+          <div class="future__grid reveal">
+            <ul class="future__points">
+              {{#each futureVision.points}}<li>{{this}}</li>{{/each}}
+            </ul>
+            <div class="future__dir">
+              <div class="tc">Strategic Direction</div>
+              <p>{{futureVision.direction}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= CLIENTS & PARTNERS =================== -->
+      <section class="section band" id="clients" aria-labelledby="clients-title">
+        <div class="band__bg">{{> pic src=clients.bg alt="Luxury black car on a night shoot — Over Exposure Productions clients and partners." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">13</span> &nbsp;— CLIENTS &amp; PARTNERS</span></div>
+            <h2 class="h-lg reveal" id="clients-title">Positioned to<br />collaborate</h2>
+          </div>
+          <div class="clients__grid">
+            <div class="reveal">
+              <p class="lead lead--wide">{{clients.copy}}</p>
+              <div class="chips">
+                {{#each clients.tags}}<span class="chip">{{this}}</span>{{/each}}
+              </div>
+            </div>
+            <div class="clients__media reveal">{{> pic src=clients.secondary alt="Prada Mode Abu Dhabi campaign — Over Exposure Productions." sizes="(max-width: 900px) 92vw, 46vw"}}</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= FILMOGRAPHY PREVIEW ==================== -->
+      <section class="section section--tight" id="work" aria-labelledby="work-title">
+        <div class="wrap">
+          <div class="reveal" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:1rem; margin-bottom: clamp(1.5rem,3vw,2.5rem)">
+            <div>
+              <div class="eyebrow gold"><span class="tc"><span class="g">14</span> &nbsp;— FILMOGRAPHY</span></div>
+              <h2 class="h-lg" id="work-title">Proudly supporting<br />world-class productions</h2>
+            </div>
+            <a class="btn" href="/portfolio/"><span class="btn__line">View All 53</span><span class="arrow">↗</span></a>
+          </div>
+
+          <div class="poster-grid reveal">
+            {{#each postersPreview}}
+            <a class="poster" href="/portfolio/" aria-label="View filmography">
+              {{> pic src=this.src alt=this.alt sizes="(max-width: 620px) 50vw, (max-width: 960px) 33vw, 16vw"}}
+            </a>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= CONTACT ========================== -->
+      <section class="section cta" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <div class="eyebrow gold" style="justify-content:center"><span class="tc"><span class="rec-dot"></span>&nbsp;LET'S ROLL</span></div>
+          <h2 class="h-xl reveal" id="contact-title">Start your production<br />in Abu Dhabi.</h2>
+          <p class="lead reveal" style="margin:1.5rem auto 0; text-align:center; max-width:60ch">Whether you are producing a feature film, television series, commercial campaign, branded content project or government initiative, our team is ready to help bring your vision to life.</p>
+          <div class="reveal mt-2" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+            <a class="btn-solid" href="/contact/">Start a Project</a>
+            <a class="btn-ghost" href="mailto:{{site.email}}">{{site.email}}</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer}}
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

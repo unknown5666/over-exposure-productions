@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{> head}}
+  </head>
+  <body data-page="portfolio">
+    {{> chrome}}
+    {{> nav}}
+
+    <main>
+      <!-- ============================ HEADER ============================ -->
+      <header class="pagehead">
+        <div class="pagehead__media">
+          {{> pic src=productionCredits.bg alt="Desert film location at sunset — Over Exposure Productions filmography." eager=true sizes="100vw"}}
+        </div>
+        <div class="pagehead__inner wrap">
+          <nav class="tc" aria-label="Breadcrumb" style="margin-bottom:1.5rem">
+            <a href="/">Home</a> <span class="g">/</span> Filmography
+          </nav>
+          <div class="eyebrow gold"><span class="tc"><span class="g">·</span> &nbsp;SELECTED PRODUCTION CREDITS</span></div>
+          <h1 class="h-xl">Proudly Supporting<br />World-Class Productions</h1>
+          <p class="lead pagehead__sub">A selection of feature films, series and campaigns supported in Abu Dhabi and across the UAE — spanning Hollywood, Bollywood, GCC content and global brands. Tap any poster to view it larger.</p>
+        </div>
+      </header>
+
+      <!-- ========================= POSTER GRID ========================= -->
+      <section class="section section--tight" aria-label="Filmography poster grid">
+        <div class="wrap">
+          <div class="poster-grid" data-portfolio>
+            {{#each posters}}
+            <button
+              class="pf-card"
+              data-cat=""
+              data-cursor="play"
+              data-media-type="image"
+              data-img="{{webp this.src 1200}}"
+              data-alt="{{this.alt}}"
+              aria-label="Open production poster {{inc @index}} of 53"
+            >
+              {{> pic src=this.src alt=this.alt sizes="(max-width: 620px) 50vw, (max-width: 960px) 33vw, 16vw"}}
+            </button>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== CTA ============================= -->
+      <section class="section cta" aria-labelledby="cta-title">
+        <div class="wrap">
+          <div class="eyebrow gold" style="justify-content:center"><span class="tc"><span class="rec-dot"></span>&nbsp;YOUR STORY NEXT</span></div>
+          <h2 class="h-xl reveal" id="cta-title">Start your production<br />in Abu Dhabi.</h2>
+          <div class="reveal mt-2"><a class="btn-solid" href="/contact/">Start a Project</a></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" data-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label="Poster viewer">
+      <button class="lb-btn lb-close" data-lb-close aria-label="Close viewer">✕</button>
+      <button class="lb-btn lb-prev" data-lb-prev aria-label="Previous">‹</button>
+      <button class="lb-btn lb-next" data-lb-next aria-label="Next">›</button>
+      <div class="lightbox__stage" data-lb-stage></div>
+      <div class="lightbox__cap" aria-hidden="true">
+        <span class="pf-card__cat" data-lb-cat></span>
+        <span class="g" data-lb-idx></span>
+      </div>
+    </div>
+
+    {{> footer}}
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

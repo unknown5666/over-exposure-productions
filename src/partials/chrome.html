@@ -1,0 +1,23 @@
+<!-- Preloader: shutter/exposure wipe. Skips instantly on repeat visits (JS). -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__mark"><span data-pre-word>OVER EXPOSURE</span></div>
+    <div class="preloader__meta">
+      <span class="tc">EXPOSING FRAME</span>
+      <span class="preloader__pct" id="prePct">0%</span>
+    </div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+  </div>
+</div>
+<div class="preloader__shutter" id="shutter" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- Atmospheric overlays -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- Custom cursor (desktop only; hidden via CSS on touch) -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"><span class="label"></span></div>

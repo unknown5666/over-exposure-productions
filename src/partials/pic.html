@@ -1,0 +1,11 @@
+<picture>
+  <source type="image/webp" srcset="{{webpset src}}" sizes="{{#if sizes}}{{sizes}}{{else}}100vw{{/if}}" />
+  <img
+    src="{{#if eager}}{{webp src 1200}}{{else}}{{src}}{{/if}}"
+    alt="{{alt}}"
+    loading="{{#if eager}}eager{{else}}lazy{{/if}}"
+    {{#if eager}}fetchpriority="high"{{/if}}
+    decoding="async"
+    draggable="false"
+  />
+</picture>

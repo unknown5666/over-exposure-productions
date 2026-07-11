@@ -1,0 +1,38 @@
+<header class="nav" id="nav">
+  <div class="nav__row">
+    <a class="brand" href="/" aria-label="Over Exposure Productions — home">
+      <img class="brand__mark" src="/assets/logo-mark.png" width="34" height="34" alt="" />
+      <span class="brand__type">
+        <span class="brand__name">Over Exposure</span>
+        <span class="brand__sub">Productions</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="/" {{#if (eq page 'home')}}aria-current="page"{{/if}}>Home</a>
+      <a class="nav__link" href="/services/" {{#if (eq page 'services')}}aria-current="page"{{/if}}>Services</a>
+      <a class="nav__link" href="/portfolio/" {{#if (eq page 'portfolio')}}aria-current="page"{{/if}}>Work</a>
+      <a class="nav__link" href="/contact/" {{#if (eq page 'contact')}}aria-current="page"{{/if}}>Contact</a>
+      <span class="nav__rec" aria-hidden="true"><span class="rec-dot"></span>REC</span>
+      <a class="nav__cta" href="/contact/">Start a Project</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <nav class="nav-overlay__links" aria-label="Mobile">
+    <a class="nav-overlay__link" href="/"><span class="idx">01</span>Home</a>
+    <a class="nav-overlay__link" href="/services/"><span class="idx">02</span>Services</a>
+    <a class="nav-overlay__link" href="/portfolio/"><span class="idx">03</span>Work</a>
+    <a class="nav-overlay__link" href="/contact/"><span class="idx">04</span>Contact</a>
+  </nav>
+  <div class="nav-overlay__foot">
+    <a href="mailto:{{site.email}}">{{site.email}}</a>
+    <a href="tel:{{site.phone}}">{{site.phoneDisplay}}</a>
+    <a href="{{site.instagram}}" target="_blank" rel="noopener">{{site.instagramHandle}}</a>
+  </div>
+</div>

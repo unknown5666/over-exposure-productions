@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {{> head}}
+  </head>
+  <body data-page="services">
+    {{> chrome}}
+    {{> nav}}
+
+    <main>
+      <!-- ============================ HEADER ============================ -->
+      <header class="pagehead">
+        <div class="pagehead__media">
+          {{> pic src=coreServices.bgs.[0] alt="Film crew silhouetted on a desert dune at golden hour — production services, Abu Dhabi." eager=true sizes="100vw"}}
+        </div>
+        <div class="pagehead__inner wrap">
+          <nav class="tc" aria-label="Breadcrumb" style="margin-bottom:1.5rem">
+            <a href="/">Home</a> <span class="g">/</span> Services
+          </nav>
+          <div class="eyebrow gold"><span class="tc"><span class="g">·</span> &nbsp;SERVICES &amp; CAPABILITIES</span></div>
+          <h1 class="h-xl">Production &amp;<br />Film Servicing</h1>
+          <p class="lead pagehead__sub">A single trusted partner for production execution, international film servicing, commercial campaigns and strategic media projects — delivered with global standards and deep Abu Dhabi access.</p>
+        </div>
+      </header>
+
+      <!-- =========================== CORE SERVICES ====================== -->
+      <section class="section" id="core-services" aria-labelledby="core-title">
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">01</span> &nbsp;— CORE SERVICES</span></div>
+            <h2 class="h-lg reveal" id="core-title">Full-service<br />capabilities</h2>
+            <p class="lead lead--wide mt-2 reveal">{{coreServices.copy}}</p>
+          </div>
+
+          <div class="coreserv__grid reveal">
+            {{#each coreServices.items}}
+            <article class="cs-card">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.name}}</h3>
+              <p>{{this.body}}</p>
+            </article>
+            {{/each}}
+          </div>
+
+          <div class="coreserv__media reveal">
+            <div>{{> pic src=coreServices.bgs.[0] alt="Film crew on a desert dune at golden hour." sizes="(max-width: 900px) 46vw, 46vw"}}</div>
+            <div>{{> pic src=coreServices.bgs.[1] alt="Post-production edit suite with colour-grading monitors." sizes="(max-width: 900px) 46vw, 46vw"}}</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== SUPPLIER CAPABILITIES =================== -->
+      <section class="section band" id="capabilities" aria-labelledby="cap-title">
+        <div class="band__bg">{{> pic src=supplierCaps.bg alt="Production base camp tent on a desert shoot at dusk in the UAE." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">02</span> &nbsp;— SUPPLIER CAPABILITIES</span></div>
+            <h2 class="h-lg reveal" id="cap-title">Across the full<br />production lifecycle</h2>
+          </div>
+          <div class="phases reveal">
+            {{#each supplierCaps.phases}}
+            <div class="phase">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.title}}</h3>
+              <p>{{this.body}}</p>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FILM SERVICES & REBATE ==================== -->
+      <section class="section band" id="film-services" aria-labelledby="film-title">
+        <div class="band__bg">{{> pic src=filmServices.bg alt="Night desert film shoot lit against the dunes — Abu Dhabi film servicing." sizes="100vw"}}</div>
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">03</span> &nbsp;— FILM SERVICES &amp; REBATE SUPPORT</span></div>
+            <h2 class="h-lg reveal" id="film-title">Maximise the benefits<br />of filming in the UAE</h2>
+            <p class="lead lead--wide mt-2 reveal">{{filmServices.copy}}</p>
+          </div>
+
+          <div class="filmserv__grid reveal">
+            <div>
+              <div class="filmserv__adv">
+                <h3>The Abu Dhabi Advantage</h3>
+                <p>{{filmServices.advantage}}</p>
+              </div>
+              <p class="filmserv__tag">{{filmServices.tag}}</p>
+            </div>
+            <ul class="checklist">
+              {{#each filmServices.bullets}}<li>{{this}}</li>{{/each}}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= WHY OVER EXPOSURE ==================== -->
+      <section class="section" id="why-ox" aria-labelledby="whyox-title">
+        <div class="wrap">
+          <div class="section__intro">
+            <div class="eyebrow gold"><span class="tc"><span class="g">04</span> &nbsp;— WHY OVER EXPOSURE PRODUCTIONS</span></div>
+            <h2 class="h-lg reveal" id="whyox-title">Clear differentiators</h2>
+            <p class="lead lead--wide mt-2 reveal">{{whyOx.copy}}</p>
+          </div>
+          <div class="whyox reveal">
+            {{#each whyOx.items}}
+            <div class="whyox__cell">
+              <div class="no">{{pad2 @index}}</div>
+              <h3>{{this.title}}</h3>
+              <p>{{this.body}}</p>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== CTA ============================= -->
+      <section class="section cta" aria-labelledby="cta-title">
+        <div class="wrap">
+          <div class="eyebrow gold" style="justify-content:center"><span class="tc"><span class="rec-dot"></span>&nbsp;LET'S ROLL</span></div>
+          <h2 class="h-xl reveal" id="cta-title">Start your production<br />in Abu Dhabi.</h2>
+          <div class="reveal mt-2" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+            <a class="btn-solid" href="/contact/">Start a Project</a>
+            <a class="btn-ghost" href="/portfolio/">See Our Filmography</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {{> footer}}
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

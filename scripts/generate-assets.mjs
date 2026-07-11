@@ -35,6 +35,34 @@ const logoMark = await sharp(markBuf)
   .toBuffer();
 await writeFile(resolve(ASSET, 'logo-mark.png'), logoMark);
 
+/* --- 1b. Arabic wordmark strip (transparent, light) ----------------------
+   The 500x500 source logo bakes the Arabic name (أوفر اكسبوجر برودكشنز) as a
+   thin strip that is illegible when the whole lockup is shrunk into the ~34px
+   nav mark. Lift that exact strip out, trim it, and recolour black-on-white →
+   white-on-transparent so it renders crisply at a readable size in the brand
+   lockup on the dark theme. Band measured from the 500x500 source. */
+const AR_BAND = { left: 30, top: 361, width: 440, height: 44 };
+const arBand = await sharp(LOGO).extract(AR_BAND).png().toBuffer();
+const arTrim = await sharp(arBand).trim({ threshold: 40 }).toBuffer();
+const arMeta = await sharp(arTrim).metadata();
+const arAlpha = await sharp(arTrim)
+  .flatten({ background: '#ffffff' })
+  .grayscale()
+  .negate()
+  .toColourspace('b-w')
+  .raw()
+  .toBuffer();
+const arWhite = await sharp({
+  create: { width: arMeta.width, height: arMeta.height, channels: 3, background: '#ffffff' },
+})
+  .raw()
+  .toBuffer();
+const wordmarkAr = await sharp(arWhite, { raw: { width: arMeta.width, height: arMeta.height, channels: 3 } })
+  .joinChannel(arAlpha, { raw: { width: arMeta.width, height: arMeta.height, channels: 1 } })
+  .png()
+  .toBuffer();
+await writeFile(resolve(ASSET, 'wordmark-ar.png'), wordmarkAr);
+
 /* --- 2. Favicons + app icons --------------------------------------------- */
 const darkTile = (size, pad) =>
   sharp({ create: { width: size, height: size, channels: 4, background: DARK } })
